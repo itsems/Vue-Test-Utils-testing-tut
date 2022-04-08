@@ -1,5 +1,7 @@
 # testing-tut
 
+Practice project from [Vue Testing with Vue Test Utils](https://www.youtube.com/watch?v=QIDhzBg5eWY&list=RDCMUCyLNhHSiEVkVwPSFKxJAfSA)
+
 ## Project setup
 ```
 npm install
