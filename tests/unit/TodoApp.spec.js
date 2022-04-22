@@ -2,16 +2,22 @@ import { mount } from "@vue/test-utils";
 import TodoApp from "@/components/TodoApp.vue";
 
 describe('TodoApp', () =>{
-  it('render text', () => {
-    const wrapper = mount(TodoApp)
 
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(TodoApp)
+  })
+
+
+  it('render text', () => {
     const todo = wrapper.get('[data-test="todo"]')
     console.log(todo);
 
     expect(todo.text()).toBe('qwer')
   })
   it('should add new todo', async () => {
-    const wrapper = mount(TodoApp);
+    wrapper = mount(TodoApp);
     const todoList = '[data-test="todo"]';
     const newTodoInput = '[data-test="new-todo"]';
     const todoForm = '[data-test="form"]'
@@ -26,7 +32,7 @@ describe('TodoApp', () =>{
     expect(wrapper.get(newTodoInput).element.value).toEqual("");
   })
   it('should be able to complete todo', async () => {
-    const wrapper = mount(TodoApp);
+    wrapper = mount(TodoApp);
 
     await wrapper.get('[data-test="todo-checkbox"]').setValue(true);
     
