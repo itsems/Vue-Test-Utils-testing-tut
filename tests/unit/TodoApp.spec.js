@@ -27,6 +27,7 @@ describe('TodoApp', () =>{
     //! 在 vue 改變 data 的行為是非同步行為(changing state is async in vue)
     await wrapper.get(newTodoInput).setValue('asdf') // 非同步行為
     await wrapper.get(todoForm).trigger('submit') // 非同步行為
+
     
     expect(wrapper.findAll(todoList)).toHaveLength(2);
     expect(wrapper.get(newTodoInput).element.value).toEqual("");
