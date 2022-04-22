@@ -10,7 +10,7 @@ describe('TodoApp', () =>{
 
     expect(todo.text()).toBe('qwer')
   })
-  it('add new todo', async () => {
+  it('should add new todo', async () => {
     const wrapper = mount(TodoApp);
     const todoList = '[data-test="todo"]';
     const newTodoInput = '[data-test="new-todo"]';
@@ -24,6 +24,13 @@ describe('TodoApp', () =>{
     
     expect(wrapper.findAll(todoList)).toHaveLength(2);
     expect(wrapper.get(newTodoInput).element.value).toEqual("");
+  })
+  it('should be able to complete todo', async () => {
+    const wrapper = mount(TodoApp);
+
+    await wrapper.get('[data-test="todo-checkbox"]').setValue(true);
+    
+    expect(wrapper.get('[data-test="todo"]').classes()).toContain("completed");
   })
 
 })
